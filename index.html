@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        label{
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <title>Heart failure Prediction</title>
+  </head>
+  <body class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="card bg-light" style="width: 100%; height: 100%; margin-top: 50px;">
+                <div class="card-header text-center mb-2 mt-2" style="background-color: rgb(232, 239, 239); border-radius: 20px;">
+                    <br>
+                    <h1 style="color: rgb(10, 10, 10);">Heart Disease Detector</h1>
+                    
+                </div>
+
+                <div class="card-body" style="background-image:url('/static/css/heart_disease_2x.jpg');">
+                    <form method="post" accept-charset="utf-8" >
+                        <div class="row">
+                            
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="age"><b>Enter age</b></label>
+                                <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+                            </div>
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="gender"><b>Enter gender</b></label>
+                                
+                                <select name="gender" id="gender" class="form-control"   id="">
+                                    <option value="-1">- Select -</option>
+                                    <option value="1">Male</option>
+                                    <option value="0">Female</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="pain_type"><b>Enter chest pain type</b></label>
+                                
+                                <select name="pain_type" id="pain_type" class="form-control"   id="">
+                                    <option value="-1">- Select -</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="bps"><b>Resting Blood Pressure</b></label>
+                                <input type="text" class="form-control" id="bps" name="bps" placeholder="Resting Blood Pressure">
+                            </div>
+
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="chol"><b>Serum cholestoral in mg/dl</b></label>
+                                <input type="text" class="form-control" id="chol" name="chol" placeholder="Serum cholestoral in mg/dl">
+                            </div>
+                            
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="fbs"><b>Fasting blood sugar > 120 mg/dl</b></label>
+                                <select name="fbs" class="form-control"   id="fbs">
+                                    <option value="-1">- Select -</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="ecg"><b>Resting electrocardiographic results</b></label>
+                                
+                                <select name="ecg" id="ecg" class="form-control"   id="">
+                                    <option value="-1">- Select -</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="thalach"><b>Maximum heart rate achieved</b></label>
+                                <input type="text" class="form-control" id="thalach" name="thalach" placeholder="Maximum heart rate achieved">
+                            </div>
+
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="exang"><b>Exercise induced angina</b></label>
+                                <select name="exang" class="form-control"   id="exang">
+                                    <option value="-1">- Select -</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="oldpeak"><b>ST depression induced by exercise relative to rest</b></label>
+                                <input type="text" class="form-control" id="oldpeak" name="oldpeak" placeholder="ST depression induced by exercise">
+                            </div>
+                            
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="slope"><b>The slope of the peak exercise ST segment</b></label>
+                                <input type="text" class="form-control" id="slope" name="slope" placeholder="The slope of the peak exercise ST segment">
+                            </div>
+
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="ca"><b>Number of major vessels</b></label>
+                                
+                                <select name="ca" id="ca" class="form-control"   id="">
+                                    <option value="-1">- Select -</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-md-6 form-group text-center mb-4">
+                                <label for="thal"><b>Thalassemia</b></label>
+                                <select name="thal" class="form-control"   id="thal">
+                                    <option value="-1">- Select -</option>
+                                    <option value="0">Normal</option>
+                                    <option value="1">Fixed defect</option>
+                                    <option value="2">Reversable Defect</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 form-group text-center" style="margin-top: 30px;">
+                                <button class="btn form-control py-2" style="background-color: rgb(232, 239, 239); color: rgb(10, 10, 10); font-size: 1.5rem;" type="submit" onclick="send_data()">Get Results</button>
+                            </div>
+
+
+                        </div>
+                    </form>
+
+                    <br>
+
+                    <div class="col-md-12 text-center">
+                        <h3><span id="prediction"></span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function form_handler(event){
+            event.preventDefault(); //Don't submit normally
+        }
+        function send_data() {
+            document.querySelector('form').addEventListener("submit", form_handler);
+
+            var fd = new FormData(document.querySelector('form'));
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/predict', true);
+            document.getElementById("prediction").innerHTML = "Wait Predicting Price!..";
+            
+            xhr.onreadystatechange = function () {
+                
+                if(xhr.readyState == XMLHttpRequest.DONE)
+                {
+                    var pred = "";
+                    if (parseInt(xhr.responseText)>50.0){
+                        pred = "Prediction : Heart Failure may occur"
+                    }
+                    else{
+                        pred = "Prediction : Patient is safe!"
+
+                    }
+                    document.getElementById("prediction").innerHTML = "The patient has "+xhr.responseText+"% of getting a heart failure"+"<br>"+pred;
+                }
+                
+            };
+
+            xhr.onload = function () { };
+            xhr.send(fd);
+
+        }
+    </script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+   
+  </body>
+</html>
